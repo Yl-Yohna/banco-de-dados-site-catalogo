@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catálogo - Front</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; padding: 20px; max-width: 900px; margin: auto }
+    h1 { margin-top: 0 }
+    .product { border: 1px solid #ddd; padding: 10px; margin: 8px 0; border-radius: 6px }
+    .form-row { margin-bottom: 8px }
+    label { display:block; font-size: 0.9rem }
+    input, textarea, select { width:100%; padding:6px; box-sizing:border-box }
+    button { padding:8px 12px }
+  </style>
+</head>
+<body>
+  <h1>Catálogo de Produtos</h1>
+
+  <section id="list">
+    <h2>Produtos</h2>
+    <div id="products">Carregando...</div>
+  </section>
+
+  <section id="create" style="margin-top:24px">
+    <h2>Criar produto</h2>
+    <div class="form-row"><label>Nome</label><input id="name" /></div>
+    <div class="form-row"><label>Descrição</label><textarea id="description"></textarea></div>
+    <div class="form-row"><label>Preço (reais)</label><input id="price" type="number" step="0.01" /></div>
+    <div class="form-row"><label>SKU</label><input id="sku" /></div>
+    <div class="form-row"><label>Estoque</label><input id="stock" type="number" value="0" /></div>
+    <div class="form-row"><label>Categoria</label><input id="category" /></div>
+    <button id="createBtn">Criar</button>
+    <div id="status" style="margin-top:8px"></div>
+  </section>
+
+  <script src="./main.js"></script>
+</body>
+</html>
