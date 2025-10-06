@@ -1,0 +1,61 @@
+<div class="admin-page">
+  <mat-card>
+    <h2>Adicionar produto</h2>
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="name" />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Descrição</mat-label>
+        <input matInput [(ngModel)]="description" />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Preço (R$)</mat-label>
+        <input matInput type="number" [(ngModel)]="price" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>SKU</mat-label>
+        <input matInput [(ngModel)]="sku" />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Estoque</mat-label>
+        <input matInput type="number" [(ngModel)]="stock" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Categoria</mat-label>
+        <input matInput [(ngModel)]="category" />
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <label>Imagem</label>
+      <input type="file" (change)="onFileSelected($event)" />
+      <div *ngIf="imagePreview" style="margin-top:8px">
+        <img [src]="imagePreview" alt="preview" style="max-width:200px; max-height:200px" />
+      </div>
+    </div>
+
+    <div style="margin-top:12px">
+      <button mat-raised-button color="primary" (click)="createProduct()">Criar produto</button>
+    </div>
+  </mat-card>
+
+  <h3 style="margin-top:20px">Produtos (local)</h3>
+  <div class="container">
+    <mat-card *ngFor="let produto of produtosFiltrados" class="produto-card">
+      <img mat-card-image [src]="produto.imagemUrl" alt="{{ produto.nome }}">
+      <mat-card-title>{{ produto.nome }}</mat-card-title>
+      <mat-card-content>
+        <p>{{ produto.descricao }}</p>
+        <p><strong>R$ {{ produto.preco }}</strong></p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
